@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Bulk Email</title>
+    <script src="https://cdn.tiny.cloud/1/50nq9p69q8y3zjjrk3wfl664e2fazj9s0eimdq742w5fawcj/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea.rich-text-editor',
+            plugins: 'lists link image table',
+            toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+            setup: function (editor) {
+                editor.on('change', function () {
+                    editor.save(); // Save the content to the textarea
+                });
+            }
+        });
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        form {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        label {
+            font-weight: bold;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        .attachments {
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h2>Send Bulk Email</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div>
+            <label for="id_subject">Email Subject</label>
+            {{ form.subject }}
+        </div>
+        <div>
+            <label for="id_body">Email Body</label>
+            {{ form.body }}
+        </div>
+        <div class="attachments">
+            <label for="id_attachments">Attach Files</label>
+            {{ form.attachments }}
+        </div>
+        <button type="submit">Send Email</button>
+    </form>
+</body>
+</html>
