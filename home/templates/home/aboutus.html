@@ -1,0 +1,62 @@
+{% extends "home/home.html" %}
+{% load static %}
+
+{% block content %}
+
+<section class="about-us-section-start">
+    <div class="about-right-icon position-relative" data-aos="fade-right"
+        data-aos-offset="300"
+        data-aos-easing="ease-in-sine">
+            <figure class="whyus-icon"><img src=" {% static "home/assets/images/about-us-section-right-icon.png" %}" alt=""
+                    class="img-fluid">
+            </figure>
+    </div>
+    <div class="container" id="aboutus">
+        <div class="row">
+            <div class="col-12">
+                <h3 class="text-center"  data-aos="fade-up"
+                data-aos-anchor-placement="top-bottom">Why Choose Us</h3>
+                    <p class="text-center">Choose Digitalwithus for our expert team, tailored security solutions, and proven track record. We prioritize your protection with 24/7 support, proactive threat management, and a commitment to keeping your business safe in an increasingly complex digital world.
+                    </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-12 my-3">
+                <div class="about-us-content" data-aos="fade-up"
+                data-aos-anchor-placement="bottom-bottom">
+                    <div class="icons-rounded-box">
+                        <figure class="mb-0"><img src="{% static "home/assets/images/about-round-icon1.png" %}" alt="">
+                        </figure>
+                    </div>
+                    <h4>Security Services</h4>
+                    <p class="security-services-p" style="height: 110px;">Digitalwithus offers comprehensive security services, including threat detection, incident response, and continuous monitoring to safeguard your digital assets.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 my-3">
+                <div class="about-us-content" data-aos="fade-up"
+                data-aos-anchor-placement="bottom-bottom">
+                    <div class="icons-rounded-box">
+                        <figure class="mb-0 icon-color"><img src="{% static "home/assets/images/about-round-icon2.png" %}" alt="">
+                        </figure>
+                    </div>
+                    <!-- #changes -->
+                    <h4>Customer Focused</h4>
+                    <p class="security-services-p" style="height: 110px;">We’re passionate about providing you with our pro-active security services. At Digitalwithus, our customer-centric approach means your goals are our mission, and your success is our greatest achievement.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 my-3">
+                <div class="about-us-content" data-aos="fade-up"
+                data-aos-anchor-placement="bottom-bottom">
+                    <div class="icons-rounded-box">
+                        <figure class="mb-0"><img src="{% static "home/assets/images/about-round-icon3.png" %}" alt="">
+                        </figure>
+                    </div>
+                    <h4>Industry Certified</h4>
+                    <p class="security-services-p" style="height: 110px;">Our team is industry-certified, bringing recognized expertise and proven methodologies to deliver the highest standards of cybersecurity protection.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

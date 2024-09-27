@@ -1,0 +1,52 @@
+{% extends "home/home.html" %}
+{% load static %}
+
+{% block content %}
+
+<section class="about-us-section-start about-us-section-2 overflow-hidden">
+    <div class="about-right-icon position-relative">
+        <figure class="about2-left-img"><img src="{% static "home/assets/images/about-section2-left-img.png" %}" alt=""
+                class="img-fluid">
+        </figure>
+    </div>
+    <div class="container" id="services">
+        <div class="row">
+            <div class="col-12">
+                <h3 class="text-center offer-section-title"  data-aos="flip-up">What We Offer</h3>
+                <p class="text-center"  data-aos="fade-left">Digitalwithus offers cutting-edge cybersecurity services, including threat detection, incident response, compliance auditing, and continuous protection, tailored to your needs.</p>
+            </div>
+        </div>
+        <div class="row">
+            {% for service in services %}
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="about-us-content about-margin-bottom" data-aos="fade-up">
+                        <div class="icons-rounded-box">
+                        {% if service.icon %}
+                            <figure class="mb-0">
+                                <img src="{{ service.icon.url }}" alt="{{ service.name }}">
+                            </figure>
+                        {% else %}
+                            <figure class="mb-0">
+                                <img src="{% static 'home/assets/images/default-icon.png' %}" alt="Default Icon">  <!-- Fallback icon -->
+                            </figure>
+                        {% endif %}
+                        </div>
+                        <h4>{{ service.name }}</h4>
+                        <p class="security-services-p">{{ service.short_description }}</p>
+                        <a href="{% url 'service_detail' service.slug %}" class="text-decoration-none">
+                            Learn More <span class="forword-arrow"><i class="fa fa-angle-right"></i></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                {% if forloop.counter|divisibleby:3 and not forloop.last %}
+                    </div><div class="row"> <!-- Close and open new row after every 3rd item -->
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+{% endblock content %}
