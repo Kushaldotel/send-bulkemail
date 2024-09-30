@@ -12,7 +12,7 @@
                         {% comment %} <h1 class="text-white">{{ service.short_description }}</h1> {% endcomment %}
                         <div class="service-description" style="color: white;">
                             {% comment %} {{ blog.description|safe }} {% endcomment %}
-                            {{ blog.description }}
+                            {{ blog.description|safe }}
                         </div>
                         <div class="banner-btn discover-btn-banner">
                             <a href="{% url "blog_list" %}" class="text-decoration-none">Discover More</a>
